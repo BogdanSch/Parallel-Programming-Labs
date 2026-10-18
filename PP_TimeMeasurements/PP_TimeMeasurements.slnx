@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="PP_TimeMeasurements.vcxproj" Id="428a7fe9-e9c9-4209-878b-e9b26d3befc8" />
+</Solution>
