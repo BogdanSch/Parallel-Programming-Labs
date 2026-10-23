@@ -18,5 +18,5 @@ void displayYear2038Problem() {
     SYSTEMTIME st;
     time_t tt = (time_t)0x7FFFFFFF;
     ConvertTimeTToSystemTime(&st, &tt);
-    printf("%4.4d:%2.2d:%2.2d %2.2d:%2.2d:%2.2d\n", st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond);
+    printf("%2.2d:%2.2d:%4.4d %2.2d:%2.2d:%2.2d\n", st.wDay, st.wMonth, st.wYear, st.wHour, st.wMinute, st.wSecond);
 }

@@ -32,7 +32,7 @@ SquareMatrix SquareMatrix::operator*(const SquareMatrix& other) const
 	for (int i = 0; i < size; i++) {
 		for (int k = 0; k < size; k++) {
 			for (int j = 0; j < size; j++) {
-				result.add(i, j, get(i, k) * other.get(k, j));
+				result.data[i][j] += data[i][k] * other.data[k][j];
 			}
 		}
 	}
