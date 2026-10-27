@@ -10,7 +10,7 @@
 using std::random_device, std::mt19937, std::uniform_int_distribution;
 
 template <typename T>
-static void multiplyMatrix(T** a, T** b, T** result, size_t size) {
+__declspec(noinline) static void multiplyMatrix(T** a, T** b, T** result, size_t size) {
 	for (size_t i = 0; i < size; i++)
 		for (size_t j = 0; j < size; j++)
 			result[i][j] = 0;
@@ -22,6 +22,12 @@ static void multiplyMatrix(T** a, T** b, T** result, size_t size) {
 			}
 		}
 	}
+}
+
+template <typename T>
+__declspec(noinline) static void multiplyMatrixPerfomanceProfiler(const char* typeName, T** a, T** b, T** c, size_t matrixSize) {
+	printf("%s\n", typeName);
+	multiplyMatrix(a, b, c, matrixSize);
 }
 
 template <typename T>
@@ -197,6 +203,15 @@ int main()
 	timeMatrixMultiplication("__int64", a3, b3, c3, matrixSize, 1);
 	timeMatrixMultiplication("float", a4, b4, c4, matrixSize, 1);
 	timeMatrixMultiplication("double", a5, b5, c5, matrixSize, 1);
+
+	// Task 10 - Matrix multiplication (data types) in Perfomance mode
+	printf("\nTASK 10:\n");
+	multiplyMatrixPerfomanceProfiler("__int8", a0, b0, c0, matrixSize);
+	multiplyMatrixPerfomanceProfiler("__int16", a1, b1, c1, matrixSize);
+	multiplyMatrixPerfomanceProfiler("__int32", a2, b2, c2, matrixSize);
+	multiplyMatrixPerfomanceProfiler("__int64", a3, b3, c3, matrixSize);
+	multiplyMatrixPerfomanceProfiler("float", a4, b4, c4, matrixSize);
+	multiplyMatrixPerfomanceProfiler("double", a5, b5, c5, matrixSize);
 
 	for (size_t i = 0; i < matrixSize; i++) {
 		delete[] a0[i]; delete[] b0[i]; delete[] c0[i];
