@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="PP_BatchProcessor.vcxproj" Id="098f8cbc-1196-4a83-8625-c0bb9edb594b" />
+</Solution>
